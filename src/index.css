@@ -57,10 +57,9 @@ body {
 }
 
 /* =========================================
-   НОВІ СТИЛІ ДЛЯ КАРТОК (ЛАБОРАТОРНА 8) 
+   СТИЛІ ДЛЯ КАРТОК (ЛАБОРАТОРНА 8-9) 
    ========================================= */
 
-/* Сітка для каталогу */
 .catalog-grid {
     display: flex;
     flex-wrap: wrap;
@@ -69,7 +68,6 @@ body {
     margin-top: 30px;
 }
 
-/* Стилі для самої картки */
 .part-card {
     background-color: white;
     border: 1px solid #ddd;
@@ -80,11 +78,12 @@ body {
     text-align: left;
     display: flex;
     flex-direction: column;
-    transition: transform 0.2s; /* Анімація при наведенні */
+    transition: transform 0.2s; 
+    position: relative; /* Для позиціонування плашки Акція */
 }
 
 .part-card:hover {
-    transform: translateY(-5px); /* Картка трохи піднімається при наведенні */
+    transform: translateY(-5px); 
 }
 
 .part-image {
@@ -109,11 +108,11 @@ body {
 .part-price {
     font-weight: bold;
     font-size: 1.1rem;
-    color: #e53935; /* Червонуватий колір для ціни */
+    color: #e53935; 
 }
 
 .card-actions {
-    margin-top: auto; /* Притискаємо кнопки до низу картки */
+    margin-top: auto; 
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -140,4 +139,101 @@ body {
     color: #1976d2;
     font-weight: bold;
     font-size: 0.95rem;
+}
+
+/* =========================================
+   НОВІ СТИЛІ: ЛАБОРАТОРНА 10 (Спінер та Банер)
+   ========================================= */
+
+.spinner-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f4f4f9;
+}
+
+.spinner {
+    width: 60px;
+    height: 60px;
+    border: 6px solid #ddd;
+    border-top: 6px solid #4CAF50;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin { 
+    0% { transform: rotate(0deg); } 
+    100% { transform: rotate(360deg); } 
+}
+
+.promo-banner {
+    background: linear-gradient(90deg, #ff8a00, #e52e71);
+    color: white;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 25px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+.promo-banner h3 {
+    margin: 0 0 10px 0;
+    font-size: 1.4rem;
+}
+
+.promo-banner p {
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+.timer {
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-family: monospace;
+    font-size: 1.3rem;
+    letter-spacing: 2px;
+}
+
+/* =========================================
+   СТИЛІ ДЛЯ АКЦІЙНОГО ВИДІЛЕННЯ ТОВАРУ
+   ========================================= */
+
+/* Підсвітка рамки для акційної картки */
+.part-card.promo-highlight {
+    border: 2px solid #e52e71;
+    box-shadow: 0 4px 15px rgba(229, 46, 113, 0.3);
+}
+
+/* Пульсуюча плашка "Акція" */
+.promo-badge {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background: linear-gradient(90deg, #ff8a00, #e52e71);
+    color: white;
+    padding: 5px 12px;
+    font-weight: bold;
+    font-size: 0.8rem;
+    border-radius: 20px;
+    text-transform: uppercase;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    animation: pulse-badge 2s infinite;
+}
+
+/* Стара ціна (закреслена) */
+.old-price {
+    text-decoration: line-through;
+    color: #888;
+    font-size: 0.9rem;
+    margin-right: 8px;
+    font-weight: normal;
+}
+
+@keyframes pulse-badge {
+    0% { transform: scale(1); box-shadow: 0 2px 5px rgba(229, 46, 113, 0.4); }
+    50% { transform: scale(1.1); box-shadow: 0 2px 15px rgba(229, 46, 113, 0.6); }
+    100% { transform: scale(1); box-shadow: 0 2px 5px rgba(229, 46, 113, 0.4); }
 }

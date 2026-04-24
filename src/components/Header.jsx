@@ -8,12 +8,10 @@ export default function Header() {
       </div>
       <nav>
         <ul className="nav-list">
-          <li>
-            <Link to="/">Головна</Link>
-          </li>
-          <li>
-            <Link to="/catalog">Каталог</Link>
-          </li>
+          <li><Link to="/">Головна</Link></li>
+          <li><Link to="/catalog">Каталог</Link></li>
+          {/* Додали нове посилання */}
+          <li><Link to="/contact">Контакти</Link></li>
         </ul>
       </nav>
     </header>
